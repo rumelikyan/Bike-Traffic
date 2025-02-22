@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bikewatching</title>
-  
+
   <!-- Link to global styles -->
   <link rel="stylesheet" href="global.css">
   
@@ -19,9 +19,21 @@
 </head>
 
 <body>
-  <h1>🚴🏼‍♀️ Bikewatching</h1>
-  <p>Interactive bike-related mapping using Mapbox.</p>
-  
+  <header>
+    <h1>🚴🏼‍♀️ Bikewatching</h1>
+    <p></p>
+    
+    <!-- Time Filter Slider -->
+    <label for="time-filter">Filter by time:</label>
+    <input id="time-filter" type="range" min="-1" max="1440" step="1">
+    
+    <!-- Time Display -->
+    <div>
+      <em id="any-time">(any time)</em>
+      <time id="selected-time"></time>
+    </div>
+  </header>
+
   <!-- Map container -->
   <div id="map">
     <svg></svg>
