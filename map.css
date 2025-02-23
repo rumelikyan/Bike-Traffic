@@ -8,7 +8,6 @@ html, body {
   align-items: center;
 }
 
-/* Positioning for Header */
 header {
   display: flex;
   flex-direction: column;
@@ -17,26 +16,22 @@ header {
   margin-bottom: 1em;
 }
 
-/* Style for Slider */
 #time-filter {
   width: 300px;
   margin-top: 5px;
 }
 
-/* Ensure the time display is stacked */
 #selected-time, #any-time {
   display: block;
   text-align: center;
 }
 
-/* Map Styling */
 #map {
   width: 100%;
   height: 90vh;
   position: relative;
 }
 
-/* Ensure SVG fills map */
 #map svg {
   position: absolute;
   width: 100%;
@@ -45,11 +40,46 @@ header {
   pointer-events: none;
 }
 
-/* Styling for Bike Station Circles */
 #map svg circle {
-  fill: steelblue;
   fill-opacity: 0.6;
   stroke: white;
   stroke-width: 1;
   pointer-events: auto;
+  fill: var(--color);
+}
+
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
+#map svg circle, .legend div {
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.legend div::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: var(--color);
 }
